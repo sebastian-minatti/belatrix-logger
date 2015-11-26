@@ -13,10 +13,12 @@ CREATE TABLE `logger_control` (
   `ACTIVE` bit(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `logger_control` (
-  `ID` int(11) NOT NULL,
-  `MESSAGE_TYPE` varchar(20) NOT NULL,
-  `ACTIVE` bit(1) DEFAULT NULL
+CREATE TABLE `logs` (
+  `USER_ID` varchar(20) NOT NULL,
+  `DATED` datetime NOT NULL,
+  `LOGGER` varchar(50) NOT NULL,
+  `LEVEL` varchar(10) NOT NULL,
+  `MESSAGE` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 In this last table add at least one register. In this version we don't check for 
