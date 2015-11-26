@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- Database Configuration -->
+	<import resource="/hibernate/database/DataSource.xml"/>
+	<import resource="/hibernate/spring/Hibernate.xml"/>
+	
+	<!-- Beans Declaration -->
+	<import resource="/hibernate/spring/LoggerControl.xml"/>
+
+	<bean id="logger" class="com.belatrix.logger.Logger">
+	    <property name="loggerControlBo" ref="loggerControlBo"/>
+	</bean>
+	
+		
+	<bean id="consoleLogger" parent="logger" class="com.belatrix.logger.ConsoleLogger">
+	    <property name="resource" value="classpath:log4j-console.properties"/>
+	</bean>
+
+	<bean id="fileLogger" parent="logger" class="com.belatrix.logger.FileLogger">
+	    <property name="resource" value="classpath:log4j-file.properties"/>
+	</bean>
+
+	<bean id="dataBaseLogger" parent="logger" class="com.belatrix.logger.DatabaseLogger">
+	    <property name="resource" value="classpath:log4j-database.properties"/>
+	</bean>
+
+</beans>

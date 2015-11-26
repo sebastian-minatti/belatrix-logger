@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- Logger Data Access Object -->
+	<bean id="loggerControlDao" class="com.belatrix.logger.dao.impl.LoggerControlDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- Logger business object -->
+	<bean id="loggerControlBo" class="com.belatrix.logger.bo.impl.LoggerControlBoImpl">
+		<property name="loggerControlDao" ref="loggerControlDao" />
+	</bean>
+
+</beans>

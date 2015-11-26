@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.belatrix.logger.model.LoggerControl" table="logger_control"
+		catalog="">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		
+		<property name="messageType" column="MESSAGE_TYPE" not-null="true" type="string">
+		</property>
+		
+		<property name="active" type="boolean">
+			<column name="ACTIVE"/>
+		</property>
+	</class>
+</hibernate-mapping>
