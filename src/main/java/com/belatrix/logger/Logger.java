@@ -10,7 +10,7 @@ import com.belatrix.logger.util.MessageType;
 
 public abstract class Logger implements ILogger{
 	private LoggerControlBo loggerControlBo;
-	protected Resource resource;
+	private Resource resource;
 		
 	public void setLoggerControlBo(LoggerControlBo loggerControlBo) {
 		this.loggerControlBo = loggerControlBo;
@@ -25,7 +25,7 @@ public abstract class Logger implements ILogger{
 		PropertyConfigurator.configure(resource.getURL());
 		if(message.isValidMessage() && isActiveMessageType(message.getMessageType())) {
 			logMessage(message);
-		}
+		} 
 	}
 	
 	/**
