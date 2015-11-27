@@ -10,7 +10,8 @@
 			<generator class="identity" />
 		</id>
 		
-		<property name="messageType" column="MESSAGE_TYPE" not-null="true" type="string">
+		<property name="messageType" type="string">
+		    <column name="MESSAGE_TYPE" unique="true" not-null="true" />
 		</property>
 		
 		<property name="active" type="boolean">
