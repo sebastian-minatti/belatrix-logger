@@ -1,10 +1,6 @@
 package com.belatrix.logger;
 
-import java.io.IOException;
-
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-import org.springframework.core.io.Resource;
 
 /**
  * Simple file logging
@@ -16,20 +12,12 @@ import org.springframework.core.io.Resource;
  * By default each <tt>FileLogger</tt> is initialized using the following
  * <tt>Resource</tt> configuration properties from log4j-file.properties. 
  */
-public class FileLogger extends com.belatrix.logger.Logger implements ILogger{
+public class FileLogger extends com.belatrix.logger.Logger {
 	private static final Logger logger = Logger.getLogger(FileLogger.class.getName());
-	private Resource resource;
 	
-	public void setResource(Resource resource) {
-		this.resource = resource;
-	}
-
 	@Override
-	public void write(Message message) throws IOException{
-		PropertyConfigurator.configure(resource.getURL());		
-		if(message.isValidMessage() && isActiveMessageType(message.getMessageType())) {
-			logger.info(message.getMessage());
-		}
-	}
+	protected void logMessage(Message message) {
+		logger.info(message.getMessage());
+	}	
 
 }

@@ -10,20 +10,18 @@
 	<!-- Beans Declaration -->
 	<import resource="/hibernate/spring/LoggerControl.xml"/>
 
-	<bean id="logger" class="com.belatrix.logger.Logger">
+	<bean id="consoleLogger" class="com.belatrix.logger.ConsoleLogger">
 	    <property name="loggerControlBo" ref="loggerControlBo"/>
-	</bean>
-	
-		
-	<bean id="consoleLogger" parent="logger" class="com.belatrix.logger.ConsoleLogger">
 	    <property name="resource" value="classpath:log4j-console.properties"/>
 	</bean>
 
-	<bean id="fileLogger" parent="logger" class="com.belatrix.logger.FileLogger">
+	<bean id="fileLogger" class="com.belatrix.logger.FileLogger">
+	    <property name="loggerControlBo" ref="loggerControlBo"/>
 	    <property name="resource" value="classpath:log4j-file.properties"/>
 	</bean>
 
-	<bean id="dataBaseLogger" parent="logger" class="com.belatrix.logger.DatabaseLogger">
+	<bean id="dataBaseLogger" class="com.belatrix.logger.DatabaseLogger">
+	    <property name="loggerControlBo" ref="loggerControlBo"/>
 	    <property name="resource" value="classpath:log4j-database.properties"/>
 	</bean>
 
