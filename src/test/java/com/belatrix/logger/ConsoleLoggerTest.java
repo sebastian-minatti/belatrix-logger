@@ -47,25 +47,22 @@ public class ConsoleLoggerTest {
 		assertFalse("Value not expected.", printStream.buffer.toString().equals(message.getMessage()));
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testLogToConsoleWithNullMessage() throws IOException {
 		Message message = new Message(null, MessageType.MESSAGE);
 		logger.write(message);
-		assertTrue("Value not expected.", printStream.buffer.toString().isEmpty());
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testLogToConsoleWithEmptyMessage() throws IOException {
 		Message message = new Message("", MessageType.MESSAGE);
 		logger.write(message);
-		assertTrue("Value not expected.", printStream.buffer.toString().isEmpty());
 	}	
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)  
 	public void testLogToConsoleWithNullTypeMessage() throws IOException {
 		Message message = new Message("print with null type message", null);
 		logger.write(message);
-		assertFalse("Value not expected.", printStream.buffer.toString().isEmpty());
 	}	
 	
 }
