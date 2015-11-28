@@ -10,7 +10,7 @@ public class LoggerControlDaoImpl extends HibernateDaoSupport implements LoggerC
 
 	/**
 	 * Retrieve the log controller flag from database.
-	 * (TODO) This method should be changed in order to use Criteria and also validate it for NullPointerException
+	 * (TODO) This method should be changed in order to use Criteria and also validate it for IndexOutOfBoundsException
 	 * but for the sake of show how to work with hibernate is OK.
 	 * 
 	 * @param MessageType
